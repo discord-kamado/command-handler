@@ -1,0 +1,45 @@
+{
+    "name": "@kamado/kommander",
+    "description": "A command handler for Kamado Framework.",
+    "version": "0.0.1",
+    "homepage": "https://github.com/discord-kamado/kommander",
+    "license": "MIT",
+    "main": "dist",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "tsc",
+        "lint": "eslint lib/**/*",
+        "lint:fix": "yarn lint --fix",
+        "test": "jest"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^8.3.5",
+        "@commitlint/config-conventional": "^8.3.4",
+        "@types/jest": "^25.1.3",
+        "@types/node": "^13.7.7",
+        "@typescript-eslint/eslint-plugin": "^2.22.0",
+        "@typescript-eslint/parser": "^2.22.0",
+        "cz-conventional-changelog": "3.1.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "husky": "^4.2.3",
+        "jest": "^25.1.0",
+        "prettier": "^1.19.1",
+        "ts-jest": "^25.2.1",
+        "typescript": "^3.8.3"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+            "pre-commit": "yarn build --noEmit && yarn lint && yarn test"
+        }
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    }
+}
