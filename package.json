@@ -1,8 +1,8 @@
 {
-    "name": "@kamado/kommander",
-    "description": "A command handler for Kamado Framework.",
+    "name": "@kamado/router",
+    "description": "A command router for Kamado Framework.",
     "version": "0.0.1",
-    "homepage": "https://github.com/discord-kamado/kommander",
+    "homepage": "https://github.com/discord-kamado/router",
     "license": "MIT",
     "main": "dist",
     "files": [
