@@ -24,9 +24,9 @@ export abstract class CommandRequestParser {
 }
 
 /**
- * The Kommand default command request parser.
+ * The default command request parser for Kamado Router.
  */
-export class KommandRequestParser {
+export class KamadoRequestParser {
     /**
      * The prefix used to listen for command.
      */

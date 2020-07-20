@@ -1,8 +1,8 @@
-import { KommandRequestParser, CommandRequest } from '../lib'
+import { KamadoRequestParser, CommandRequest } from '../lib'
 
 function test([prefix, query]: [string, string], expected: CommandRequest) {
     return () => {
-        const parser = new KommandRequestParser(prefix)
+        const parser = new KamadoRequestParser(prefix)
         const result = parser.parse(query)
 
         expect(result).toStrictEqual(expected)
@@ -12,12 +12,12 @@ function test([prefix, query]: [string, string], expected: CommandRequest) {
 /**
  * Tests for the request parser.
  */
-describe('Request Parser <KommandRequestParser>', () => {
+describe('Request Parser <KamadoRequestParser>', () => {
     /**
      * The field `arguments` should always be an array.
      */
     it('arguments should always be present', () => {
-        const parser = new KommandRequestParser('?')
+        const parser = new KamadoRequestParser('?')
         const noArgumentsGiven = parser.parse('?profile')
 
         expect(Array.isArray(noArgumentsGiven.arguments)).toBe(true)
@@ -30,7 +30,7 @@ describe('Request Parser <KommandRequestParser>', () => {
      * The request parser should not include the prefix into command request name.
      */
     it('prefix should be removed from command requests', () => {
-        const parser = new KommandRequestParser(':')
+        const parser = new KamadoRequestParser(':')
 
         const prefixRequest = parser.parse(':stop')
         expect(prefixRequest.name.includes(':')).toBe(false)
