@@ -1,6 +1,6 @@
-### Kommander
+### Kamado Router
 
-A simple command handler for [Kamado Framework](https://github.com/discord-kamado).
+A simple command router for [Kamado Framework](https://github.com/discord-kamado).
 
 #### License
 
