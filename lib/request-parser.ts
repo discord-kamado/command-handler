@@ -42,7 +42,9 @@ export class KamadoRequestParser {
     /**
      * Parses a command request.
      */
-    public parse(request: string): CommandRequest {
+    public parse(request: string): CommandRequest | undefined {
+        if (!request.startsWith(this.prefix)) return undefined
+
         const commandArguments = request.slice(this.prefix.length).split(/\s+/g)
 
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
