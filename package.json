@@ -12,7 +12,7 @@
         "build": "tsc",
         "lint": "eslint lib/**/*",
         "lint:fix": "yarn lint --fix",
-        "test": "jest"
+        "test": "jest --verbose"
     },
     "devDependencies": {
         "@commitlint/cli": "^8.3.5",
