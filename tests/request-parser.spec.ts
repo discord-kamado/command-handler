@@ -41,6 +41,16 @@ describe('Request Parser <KamadoRequestParser>', () => {
     })
 
     /**
+     * The request parser should not parse non-prefixed requests.
+     */
+    it('should not parse non-prefixed requests', () => {
+        const parser = new KamadoRequestParser('+')
+        const nonPrefixedRequest = parser.parse('hello')
+
+        expect(nonPrefixedRequest).toBeUndefined()
+    })
+
+    /**
      * The request parser should be able to parse "!ping" as { name: 'ping', arguments: [] }
      */
     it(
