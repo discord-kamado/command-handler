@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { KamadoRequestParser, CommandRequest } from '../lib'
 
 function test([prefix, query]: [string, string], expected: CommandRequest) {
     return () => {
         const parser = new KamadoRequestParser(prefix)
-        const result = parser.parse(query)
+        const result = parser.parse(query)!
 
         expect(result).toStrictEqual(expected)
     }
@@ -18,11 +19,11 @@ describe('Request Parser <KamadoRequestParser>', () => {
      */
     it('arguments should always be present', () => {
         const parser = new KamadoRequestParser('?')
-        const noArgumentsGiven = parser.parse('?profile')
+        const noArgumentsGiven = parser.parse('?profile')!
 
         expect(Array.isArray(noArgumentsGiven.arguments)).toBe(true)
 
-        const argumentGiven = parser.parse('?profile 295604371465699329')
+        const argumentGiven = parser.parse('?profile 295604371465699329')!
         expect(Array.isArray(argumentGiven.arguments)).toBe(true)
     })
 
@@ -32,10 +33,10 @@ describe('Request Parser <KamadoRequestParser>', () => {
     it('prefix should be removed from command requests', () => {
         const parser = new KamadoRequestParser(':')
 
-        const prefixRequest = parser.parse(':stop')
+        const prefixRequest = parser.parse(':stop')!
         expect(prefixRequest.name.includes(':')).toBe(false)
 
-        const doublePrefixRequest = parser.parse('::stop')
+        const doublePrefixRequest = parser.parse('::stop')!
         expect(doublePrefixRequest.name.lastIndexOf(':')).toBe(0)
     })
 
